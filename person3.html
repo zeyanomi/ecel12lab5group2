@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About Page</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 30px 40px;
+  padding-top: 10px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #e6f0ff;
+  text-align: center;
+  min-height: 100vh;
+
+  background:
+    linear-gradient(to bottom, rgba(0,119,182,0.45), rgba(15,37,115,0.60), rgba(1,8,45,0.85)),
+    url("images/galaxy3.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* GENERAL BOX STYLE */
+.box {
+  background: rgba(0,0,0,0.4);
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 15px;
+  background: linear-gradient(to bottom, #0a0f1f, #0f1c3f);
+  box-shadow: 0 0 10px rgba(0,140,255,0.4);
+}
+
+/* PROFILE BOX */
+.profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 10px #3399ff;
+}
+
+.profile h1 {
+  color: #66b2ff;
+  margin-top: 15px;
+}
+
+/* TEXT */
+p {
+  color: #ccc;
+}
+
+/* LINK BOX */
+
+/* BACK BUTTON TOP LEFT */
+.back {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: inline-block;
+  padding: 15px 25px;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, #0a0f1f, #0f1c3f);
+  box-shadow: 0 0 10px rgba(0,140,255,0.4);
+}
+
+.back a {
+  color: #66b2ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back a:hover {
+  text-decoration: underline;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- PROFILE BOX -->
+<div class="box profile">
+  <img src="images/person3.jpg">
+  <h1>Jamie Rose Clavel</h1>
+</div>
+
+<!-- DESCRIPTION BOX 1 -->
+<div class="box">
+  <p>
+    This is a simple placeholder about page.
+    Content will be updated soon.
+  </p>
+</div>
+
+<!-- DESCRIPTION BOX 2 -->
+<div class="box">
+  <p>
+    Hobbies: Example | Example | Example
+  </p>
+</div>
+
+<!-- BACK BUTTON BOX -->
+<div class="box back">
+  <a href="index.html">⬅ Back to Home</a>
+</div>
+
+</body>
+</html>
