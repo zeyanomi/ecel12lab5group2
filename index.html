@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Group Website</title>
+
+<style>
+body {
+  margin: 0;
+  padding-top: 10px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #e6f0ff;
+
+  background:
+    linear-gradient(to bottom, rgba(0,119,182,0.45), rgba(15,37,115,0.60), rgba(1,8,45,0.85)),
+    url("images/bluegalaxy.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* HEADER BOX */
+.header {
+  padding: 40px 30px;
+  background: linear-gradient(to bottom, #0a0f1f, #0f1c3f);
+  text-align: center;
+  margin: 80px auto 30px;
+  max-width: 900px;
+  border-radius: 12px;
+  border: 2px solid rgba(102,178,255,0.4);
+  box-shadow: 0 0 15px rgba(91, 176, 246, 0.4);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 3em;
+  text-shadow: 0 0 10px #3399ff;
+}
+
+.header p {
+  color: #9ecbff;
+}
+
+/* MEMBERS BOX */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centers all rows */
+  gap: 15px;
+  padding: 30px;
+  max-width: 900px;
+  margin: 20px auto;
+  background: linear-gradient(to bottom, #0a0f1f, #0f1c3f);
+  border-radius: 12px;
+  border: 2px solid rgba(102,178,255,0.4);
+  box-shadow: 0 0 15px rgba(0,140,255,0.4);
+}
+
+/* CARD */
+.card {
+  width: 28%; /* makes 3 fit nicely on top */
+  min-width: 200px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 12px;
+  padding: 25px 15px;
+  text-decoration: none;
+  color: #e6f0ff;
+  box-shadow: 0 0 8px rgba(0,140,255,0.25);
+  transition: 0.3s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 18px rgba(0,140,255,0.7);
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #66b2ff;
+}
+
+/* CENTER LAST 2 CARDS */
+.container a:nth-child(4) {
+  grid-column: 1 / 2;
+  justify-self: end;
+}
+
+.container a:nth-child(5) {
+  grid-column: 3 / 4;
+  justify-self: start;
+}
+
+/* FOOTER BOX */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  margin: 60px auto;
+  max-width: 900px;
+  border-radius: 12px;
+  
+  
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Group 2</h1>
+  <p>Click a member to view their page</p>
+</div>
+
+<!-- MEMBERS -->
+<div class="container">
+
+  <a href="person1.html" class="card">
+    <h2>BANCE</h2>
+  </a>
+
+  <a href="person2.html" class="card">
+    <h2>CLARO</h2>
+  </a>
+
+  <a href="person3.html" class="card">
+    <h2>CLAVEL</h2>
+  </a>
+
+  <a href="person4.html" class="card">
+    <h2>CORDOVA</h2>
+  </a>
+
+  <a href="person5.html" class="card">
+    <h2>ELLEMA</h2>
+  </a>
+
+</div>
+
+<footer>
+  <p>© 2026 Group Project | ECEL 12</p>
+</footer>
+
+</body>
+</html>
