@@ -95,7 +95,9 @@ h2{
 }
 /* when card hovered */
 .card:hover .type-text {
-  animation: revealText 8s ease forwards;
+  animation: revealText 6s ease forwards;
+  max-height:1000px; /* large enough for any text */
+  opacity:1;
 }
 
 /* reset when mouse leaves */
@@ -149,7 +151,9 @@ h2{
 .preview-box{
   position:relative;
   max-width:700px;
-  height:340px;
+  width:100%;
+  aspect-ratio:16 / 9;
+  height:auto;
   margin:20px auto;
   border-radius:22px;
   overflow:hidden;
@@ -242,7 +246,12 @@ h2{
 }
 
 /* MOBILE */
-@media(max-width:700px){
+@media(max-width:700px)
+{
+  
+.preview-box{
+  aspect-ratio:16/10;
+}
 
 .hero{
   grid-template-columns:1fr;
@@ -362,7 +371,7 @@ h2{
 </div>
 
 <div class="footer">
-  © 2026 Paolo Ellema. All Rights Reserved.
+  © 2026 Paolo ELlema. All Rights Reserved.
 </div>
 
 </body>

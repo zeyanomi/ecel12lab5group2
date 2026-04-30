@@ -2,115 +2,274 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>About Page</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate Interactive Page</title>
 <style>
 body {
-  margin: 0;
-  padding: 30px 40px;
-  padding-top: 10px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #e6f0ff;
-  text-align: center;
-  min-height: 100vh;
-
-  background:
-    linear-gradient(to bottom, rgba(0,119,182,0.45), rgba(15,37,115,0.60), rgba(1,8,45,0.85)),
-    url("images/galaxy4.jpg");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#1e3c72,#2a5298);
+  color:white;
+  text-align:center;
+}
+header {
+  padding:20px;
+  font-size:2.2rem;
+  font-weight:bold;
+}
+.container {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  padding:20px;
+}
+.card {
+  background:rgba(255,255,255,0.1);
+  border-radius:15px;
+  padding:20px;
+  transition:.3s;
+  cursor:pointer;
+}
+.card:hover {
+  transform:scale(1.05);
+  background:rgba(255,255,255,0.2);
+}
+button {
+  padding:10px 15px;
+  border:none;
+  border-radius:10px;
+  background:#ff7b00;
+  color:white;
+  cursor:pointer;
+  margin:5px;
+}
+.hidden {display:none;}
+.popup {
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:white;
+  color:black;
+  padding:20px;
+  border-radius:10px;
+  display:none;
+}
+input, select {
+  padding:8px;
+  border-radius:8px;
+  border:none;
+  margin-top:5px;
 }
 
-/* GENERAL BOX STYLE */
-.box {
-  background: rgba(0,0,0,0.4);
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 25px;
-  border-radius: 15px;
-  background: linear-gradient(to bottom, #0a0f1f, #0f1c3f);
-  box-shadow: 0 0 10px rgba(0,140,255,0.4);
-}
-
-/* PROFILE BOX */
-.profile img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 10px #3399ff;
-}
-
-.profile h1 {
-  color: #66b2ff;
-  margin-top: 15px;
-}
-
-/* TEXT */
-p {
-  color: #ccc;
-}
-
-/* BACK BUTTON */
-.back {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
-}
-
-.back a {
-  color: #b3d4ff;
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 1rem;
   text-decoration: none;
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 10px 20px;
-  border-radius: 30px;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  background: rgba(0,0,0,0.3);
+  padding: 8px 14px;
+  border-radius: 10px;
   transition: 0.3s;
+  z-index: 1000;
 }
 
-.back a:hover {
-  text-decoration: underline;
-  background: rgba(102, 178, 255, 0.2);
-  color: #fff;
+.back-btn:hover {
+  background: #ff7b00;
+  transform: translateX(-4px);
 }
 
 </style>
-
 </head>
-
 <body>
 
-<!-- PROFILE BOX -->
-<div class="box profile">
-  <img src="images/person4.jpg">
-  <h1>Christopher Kim Cordova</h1>
+<a href="index.html" class="back-btn">
+  ← Back
+</a>
+
+<header>🚀 Christopher Kim Cordova 🚀</header>
+
+<div class="container">
+
+<!-- ALERT -->
+<div class="card" onclick="alert('You clicked this card!')">
+<h3>Click Alert</h3>
+<p>Click me!</p>
 </div>
 
-<!-- DESCRIPTION BOX 1 -->
-<div class="box">
-  <p>
-    This is a simple placeholder about page.
-    Content will be updated soon.
-  </p>
+<!-- BACKGROUND -->
+<div class="card" onclick="changeBackground()">
+<h3>Random Background</h3>
 </div>
 
-<!-- DESCRIPTION BOX 2 -->
-<div class="box">
-  <p>
-    Hobbies: Example | Example | Example
-  </p>
+<!-- DARK MODE -->
+<div class="card">
+<h3>Dark Mode</h3>
+<button onclick="toggleDark()">Toggle</button>
 </div>
 
-<!-- BACK BUTTON -->
-<div class="back">
-  <a href="index.html">⬅ Back</a>
+<!-- TEXT TOGGLE -->
+<div class="card">
+<h3>Hidden Message</h3>
+<button onclick="toggleText()">Show</button>
+<p id="secret" class="hidden">🔥 You found me!</p>
 </div>
+
+<!-- COUNTER -->
+<div class="card">
+<h3>Counter</h3>
+<button onclick="increaseCounter()">+</button>
+<p id="counter">0</p>
+</div>
+
+<!-- LIVE CLOCK -->
+<div class="card">
+<h3>Live Clock ⏰</h3>
+<p id="clock"></p>
+</div>
+
+<!-- INPUT GREETING -->
+<div class="card">
+<h3>Greeting</h3>
+<input id="name" placeholder="Enter name">
+<button onclick="greet()">Say Hi</button>
+<p id="greet"></p>
+</div>
+
+<!-- COLOR PICKER -->
+<div class="card">
+<h3>Pick Color 🎨</h3>
+<input type="color" onchange="setColor(this.value)">
+</div>
+
+<!-- CALCULATOR -->
+<div class="card">
+<h3>Calculator</h3>
+<input id="a" type="number"> + 
+<input id="b" type="number"><br>
+<button onclick="calc()">=</button>
+<p id="result"></p>
+</div>
+
+<!-- TODO LIST -->
+<div class="card">
+<h3>To-Do List</h3>
+<input id="task" placeholder="Task">
+<button onclick="addTask()">Add</button>
+<ul id="list"></ul>
+</div>
+
+<!-- RANDOM NUMBER -->
+<div class="card">
+<h3>Random Number 🎲</h3>
+<button onclick="randomNum()">Generate</button>
+<p id="rand"></p>
+</div>
+
+<!-- POPUP -->
+<div class="card">
+<h3>Popup</h3>
+<button onclick="openPopup()">Open</button>
+</div>
+
+<!-- SLIDER -->
+<div class="card">
+<h3>Slider</h3>
+<input type="range" min="0" max="100" oninput="slide(this.value)">
+<p id="slideVal">50</p>
+</div>
+
+<!-- DROPDOWN -->
+<div class="card">
+<h3>Dropdown</h3>
+<select onchange="selectOption(this.value)">
+<option value="">Choose</option>
+<option value="Option 1">Option 1</option>
+<option value="Option 2">Option 2</option>
+</select>
+<p id="choice"></p>
+</div>
+
+</div>
+
+<div class="popup" id="popup">
+<p>🔥 Cool Popup Window!</p>
+<button onclick="closePopup()">Close</button>
+</div>
+
+<div class="footer">
+  © 2026 Christopher Kim Cordova. All Rights Reserved.
+</div>
+
+<script>
+function changeBackground(){
+  const colors=['#1e3c72','#ff512f','#11998e','#8e2de2','#000','#222'];
+  document.body.style.background=colors[Math.floor(Math.random()*colors.length)];
+}
+
+function toggleDark(){
+  document.body.classList.toggle('dark');
+  document.body.style.background = document.body.style.background === 'black' ? '#1e3c72' : 'black';
+}
+
+function toggleText(){
+  document.getElementById('secret').classList.toggle('hidden');
+}
+
+let count=0;
+function increaseCounter(){
+  count++;
+  document.getElementById('counter').innerText=count;
+}
+
+setInterval(()=>{
+  document.getElementById('clock').innerText=new Date().toLocaleTimeString();
+},1000);
+
+function greet(){
+  let name=document.getElementById('name').value;
+  document.getElementById('greet').innerText='Hello '+name+'!';
+}
+
+function setColor(color){
+  document.body.style.background=color;
+}
+
+function calc(){
+  let a=Number(document.getElementById('a').value);
+  let b=Number(document.getElementById('b').value);
+  document.getElementById('result').innerText=a+b;
+}
+
+function addTask(){
+  const li=document.createElement('li');
+  li.innerText=document.getElementById('task').value;
+  li.onclick=()=>li.remove();
+  document.getElementById('list').appendChild(li);
+}
+
+function randomNum(){
+  document.getElementById('rand').innerText=Math.floor(Math.random()*100);
+}
+
+function openPopup(){
+  document.getElementById('popup').style.display='block';
+}
+
+function closePopup(){
+  document.getElementById('popup').style.display='none';
+}
+
+function slide(val){
+  document.getElementById('slideVal').innerText=val;
+}
+
+function selectOption(val){
+  document.getElementById('choice').innerText=val;
+}
+</script>
 
 </body>
 </html>
