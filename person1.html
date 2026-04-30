@@ -2,12 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- ✅ IMPORTANT: Mobile responsiveness -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>About Page - One Piece Journey</title>
 
 <style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body {
-  margin: 0;
-  padding: 30px 40px;
+  padding: 20px 15px;
   padding-top: 10px;
   font-family: 'Segoe UI', sans-serif;
   color: #e6f0ff;
@@ -26,16 +35,16 @@ body {
 
 /* GENERAL BOX STYLE */
 .box {
-  background: rgba(0,0,0,0.4);
+  width: 100%;
   max-width: 700px;
-  margin: 20px auto;
-  padding: 25px;
+  margin: 15px auto;
+  padding: 20px;
   border-radius: 15px;
   background: linear-gradient(to bottom, #0a0f1f, #0f1c3f);
   box-shadow: 0 0 10px rgba(0,140,255,0.4);
 }
 
-/* PROFILE BOX */
+/* PROFILE */
 .profile img {
   width: 120px;
   height: 120px;
@@ -56,37 +65,37 @@ p {
 }
 
 /* BACK BUTTON */
-  .back {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
+.back {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 10;
 }
 
 .back a {
-    color: #b3d4ff;
-    text-decoration: none;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.599);
-    padding: 10px 20px;
-    border-radius: 30px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.3s;
+  color: #b3d4ff;
+  text-decoration: none;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+  border-radius: 30px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
+  font-size: 0.9rem;
 }
 
 .back a:hover {
-    text-decoration: underline;
-    background: rgba(102, 178, 255, 0.2);
-    color: #fff;
+  text-decoration: underline;
+  background: rgba(102, 178, 255, 0.2);
+  color: #fff;
 }
 
-/* HOBBY GALLERY STYLES - cute themed */
+/* HOBBY GALLERY */
 .hobby-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 15px;
   margin-top: 15px;
 }
 
@@ -94,7 +103,6 @@ p {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   padding: 12px;
-  width: 160px;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
   border: 1px solid rgba(255, 180, 100, 0.4);
@@ -108,123 +116,162 @@ p {
 
 .hobby-img {
   width: 100%;
-  height: 130px;
+  height: 120px;
   object-fit: cover;
   border-radius: 16px;
   margin-bottom: 10px;
   background: #1a2a3a;
   border: 2px solid #ffccaa;
-  transition: 0.2s;
 }
 
 .hobby-card h3 {
   color: #ffddbb;
-  font-size: 1.05rem;
+  font-size: 1rem;
   margin: 8px 0 5px;
-  font-weight: 600;
 }
 
 .hobby-card p {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: #e0eaff;
 }
 
-/* cute section divider */
+/* SECTION TITLE */
 .section-title {
   color: #ffdd99;
   border-left: 4px solid #ffaa66;
-  padding-left: 15px;
+  padding-left: 12px;
   text-align: left;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-  font-weight: 500;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
 }
 
+/* DIVIDER */
 hr {
   border-color: #ffaa66;
   width: 60px;
   margin: 15px auto;
 }
 
-/* small cute accent */
+/* QUOTE */
 .cute-quote {
   font-style: italic;
   color: #ffddbb;
   background: rgba(255,200,100,0.1);
   display: inline-block;
-  padding: 4px 15px;
+  padding: 4px 12px;
   border-radius: 50px;
 }
-</style>
 
+/* FOOTER */
+.footer {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* 📱 MOBILE FIXES */
+@media (max-width: 600px) {
+
+  .back {
+    top: auto;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .back a {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  }
+  
+  .profile img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .profile h1 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1rem;
+  }
+
+  .hobby-img {
+    height: 100px;
+  }
+
+}
+</style>
 </head>
 
 <body>
 
-<!-- PROFILE BOX (unchanged) -->
 <div class="box profile">
   <img src="images/person1.jpg" alt="Kate Bance profile picture">
   <h1>Kate Bance</h1>
 </div>
 
-<!-- DESCRIPTION BOX 1 - One Piece Content (no reaction emojis) -->
 <div class="box">
   <p><strong>My One Piece Journey</strong></p>
-  <p>I set sail with the Straw Hat Pirates years ago, and it's been the greatest adventure. From the emotional goodbye to Going Merry to the epic Wano battles, One Piece has shaped my love for freedom, friendship, and following your dreams. My favorite character is Nico Robin, and I truly believe "The One Piece is real."</p>
+  <p>I set sail with the Straw Hat Pirates years ago, and it's been the greatest adventure. From the emotional goodbye to Going Merry to the epic Wano battles, One Piece has shaped my love for freedom, friendship, and following your dreams.</p>
   <p>Currently re-reading the Egghead arc and collecting manga volumes. I even have a tiny Thousand Sunny model on my desk.</p>
 </div>
 
-<!-- DESCRIPTION BOX 2 - One Piece Hobbies with Cute Themed Pictures -->
 <div class="box">
   <div class="section-title">My One Piece Hobbies</div>
+
   <div class="hobby-gallery">
-    
-  <!-- Cute Manga Reading -->
-<div class="hobby-card">
-  <img class="hobby-img" src="images/hobby-manga.jpg" alt="Cute One Piece manga reading with Chopper">
-  <h3>Manga Marathon</h3>
-  <p>Rereading arcs & cute theories. Current favorite: Whole Cake Island</p>
-</div>
 
-<!-- Cute Figure Collection -->
-<div class="hobby-card">
-  <img class="hobby-img" src="images/hobby-figures.jpg" alt="Adorable One Piece chibi figures">
-  <h3>Figure Hunting</h3>
-  <p>Collecting cute Straw Hat crew figures. Just got tiny Gear 5 Luffy</p>
-</div>
+    <div class="hobby-card">
+      <img class="hobby-img" src="images/hobby-manga.jpg">
+      <h3>Manga Marathon</h3>
+      <p>Rereading arcs & theories. Favorite: Whole Cake Island</p>
+    </div>
 
-<!-- Cute Fanart Drawing -->
-<div class="hobby-card">
-  <img class="hobby-img" src="images/hobby-fanart.jpg" alt="Kawaii One Piece fanart">
-  <h3>Fanart Drawing</h3>
-  <p>Sketching chibi Zoro, Nami & original crew adventures</p>
-</div>
+    <div class="hobby-card">
+      <img class="hobby-img" src="images/hobby-figures.jpg">
+      <h3>Figure Hunting</h3>
+      <p>Collecting Straw Hat figures</p>
+    </div>
 
-<!-- Cute Anime Watching -->
-<div class="hobby-card">
-  <img class="hobby-img" src="images/hobby-anime.jpg" alt="Cozy cute One Piece anime watching">
-  <h3>Anime Rewatch</h3>
-  <p>Emotional moments & adorable crew interactions</p>
-</div>
-    
+    <div class="hobby-card">
+      <img class="hobby-img" src="images/hobby-fanart.jpg">
+      <h3>Fanart Drawing</h3>
+      <p>Sketching crew adventures</p>
+    </div>
+
+    <div class="hobby-card">
+      <img class="hobby-img" src="images/hobby-anime.jpg">
+      <h3>Anime Rewatch</h3>
+      <p>Reliving emotional arcs</p>
+    </div>
+
   </div>
+
   <hr>
-  <p><strong>My Bounty:</strong> 80,000,000 Belly (for being a super cute Straw Hat fan)</p>
+
+  <p><strong>My Bounty:</strong> 80,000,000 Belly</p>
   <p class="cute-quote">"I want to live" — Nico Robin</p>
 </div>
 
-<!-- Extra box: favorite crew member trivia (cleaned from heavy emojis, kept soft) -->
 <div class="box">
   <p><strong>Straw Hat Crew Ranking</strong></p>
-  <p>1. Nico Robin (archeologist queen)<br>
-  2. Luffy (freedom icon)<br>
-  3. Chopper (sweet doctor)<br>
-  4. Zoro (loyal protector)<br>
-  5. Sanji (kind chef)</p>
-  <p>What's your One Piece dream? Let's find the All Blue together</p>
+  <p>
+    1. Nico Robin<br>
+    2. Luffy<br>
+    3. Chopper<br>
+    4. Zoro<br>
+    5. Sanji
+  </p>
 </div>
 
-<!-- BACK BUTTON (unchanged) -->
 <div class="back">
   <a href="index.html">⬅ Back</a>
 </div>
