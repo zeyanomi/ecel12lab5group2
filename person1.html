@@ -64,6 +64,15 @@ p {
   line-height: 1.5;
 }
 
+.journey p:first-child {
+  text-align: center;
+}
+
+.journey p:not(:first-child) {
+  text-align: justify;
+  text-indent: 2em;
+}
+
 /* BACK BUTTON */
 .back {
   position: fixed;
@@ -162,6 +171,17 @@ hr {
   border-radius: 50px;
 }
 
+.crew-list {
+  display: inline-block;     /* keeps it centered as a block */
+  text-align: left;          /* aligns numbers + text neatly */
+  margin: 10px auto;
+  padding-left: 20px;
+}
+
+.crew-list li {
+  margin: 5px 0;
+}
+
 /* FOOTER */
 .footer {
   margin-top: 20px;
@@ -213,63 +233,72 @@ hr {
 
 <body>
 
+<!-- PROFILE BOX (unchanged) -->
 <div class="box profile">
   <img src="images/person1.jpg" alt="Kate Bance profile picture">
   <h1>Kate Bance</h1>
 </div>
 
-<div class="box">
-  <p><strong>My One Piece Journey</strong></p>
-  <p>I set sail with the Straw Hat Pirates years ago, and it's been the greatest adventure. From the emotional goodbye to Going Merry to the epic Wano battles, One Piece has shaped my love for freedom, friendship, and following your dreams.</p>
-  <p>Currently re-reading the Egghead arc and collecting manga volumes. I even have a tiny Thousand Sunny model on my desk.</p>
+<!-- DESCRIPTION BOX 1 - One Piece Content (no reaction emojis) -->
+<div class="box journey">
+  <p><strong><strong>My One Piece Journey</strong></strong></p><br>
+  <p>I set sail with the Straw Hat Pirates years ago, and it's been the greatest adventure. 
+    From the emotional goodbye to Going Merry to the epic Wano battles, One Piece has shaped my love for freedom, friendship, 
+    and following your dreams. My favorite character is Nico Robin, and I truly believe "<strong>The One Piece is real</strong>."</p>
+  <p>Currently re-reading the Egghead arc and collecting manga volumes. 
+    I even have a tiny Thousand Sunny model on my desk.</p>
 </div>
 
+<!-- DESCRIPTION BOX 2 - One Piece Hobbies with Cute Themed Pictures -->
 <div class="box">
   <div class="section-title">My One Piece Hobbies</div>
-
   <div class="hobby-gallery">
-
-    <div class="hobby-card">
-      <img class="hobby-img" src="images/hobby-manga.jpg">
-      <h3>Manga Marathon</h3>
-      <p>Rereading arcs & theories. Favorite: Whole Cake Island</p>
-    </div>
-
-    <div class="hobby-card">
-      <img class="hobby-img" src="images/hobby-figures.jpg">
-      <h3>Figure Hunting</h3>
-      <p>Collecting Straw Hat figures</p>
-    </div>
-
-    <div class="hobby-card">
-      <img class="hobby-img" src="images/hobby-fanart.jpg">
-      <h3>Fanart Drawing</h3>
-      <p>Sketching crew adventures</p>
-    </div>
-
-    <div class="hobby-card">
-      <img class="hobby-img" src="images/hobby-anime.jpg">
-      <h3>Anime Rewatch</h3>
-      <p>Reliving emotional arcs</p>
-    </div>
-
-  </div>
-
-  <hr>
-
-  <p><strong>My Bounty:</strong> 80,000,000 Belly</p>
-  <p class="cute-quote">"I want to live" — Nico Robin</p>
+    
+  <!-- Cute Manga Reading -->
+<div class="hobby-card">
+  <img class="hobby-img" src="images/hobby-manga.jpg" alt="Cute One Piece manga reading with Chopper">
+  <h3>Manga Marathon</h3>
+  <p>Rereading arcs & cute theories. Current favorite: Whole Cake Island</p>
 </div>
 
+<!-- Cute Figure Collection -->
+<div class="hobby-card">
+  <img class="hobby-img" src="images/hobby-figures.jpg" alt="Adorable One Piece chibi figures">
+  <h3>Figure Hunting</h3>
+  <p>Collecting cute Straw Hat crew figures. Just got tiny Gear 5 Luffy</p>
+</div>
+
+<!-- Cute Fanart Drawing -->
+<div class="hobby-card">
+  <img class="hobby-img" src="images/hobby-fanart.jpg" alt="Kawaii One Piece fanart">
+  <h3>Fanart Drawing</h3>
+  <p>Sketching chibi Zoro, Nami & original crew adventures</p>
+</div>
+
+<!-- Cute Anime Watching -->
+<div class="hobby-card">
+  <img class="hobby-img" src="images/hobby-anime.jpg" alt="Cozy cute One Piece anime watching">
+  <h3>Anime Rewatch</h3>
+  <p>Emotional moments & adorable crew interactions</p>
+</div>
+    
+  </div>
+  <hr>
+  <p><strong>My Bounty:</strong> 80,000,000 Belly (for being a super cute Straw Hat fan)</p><br>
+  <p class="cute-quote">"<strong>I want to live</strong>" — Nico Robin</p>
+</div>
+
+<!-- Extra box: favorite crew member trivia (cleaned from heavy emojis, kept soft) -->
 <div class="box">
   <p><strong>Straw Hat Crew Ranking</strong></p>
-  <p>
-    1. Nico Robin<br>
-    2. Luffy<br>
-    3. Chopper<br>
-    4. Zoro<br>
-    5. Sanji
-  </p>
+  <ol class="crew-list">
+  <li>Nico Robin (archeologist queen)</li>
+  <li>Luffy (freedom icon)</li>
+  <li>Chopper (sweet doctor)</li>
+  <li>Zoro (loyal protector)</li>
+  <li>Sanji (kind chef)</li>
+</ol>
+  <p>What's your <strong>One Piece</strong> dream? Let's find the <strong>All Blue</strong> together</p>
 </div>
 
 <div class="back">
