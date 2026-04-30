@@ -2,111 +2,363 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Page</title>
 
 <style>
-body {
-  margin: 0;
-  padding: 30px 40px;
-  padding-top: 10px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #e6f0ff;
-  text-align: center;
-  min-height: 100vh;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Segoe UI',sans-serif;
+  color:#e6f0ff;
+  text-align:center;
+  min-height:100vh;
+  padding:30px 40px;
 
   background:
-    linear-gradient(to bottom, rgba(0,119,182,0.45), rgba(15,37,115,0.60), rgba(1,8,45,0.85)),
-    url("images/galaxy5.jpg");
+  linear-gradient(to bottom,
+  rgba(0,119,182,.45),
+  rgba(15,37,115,.60),
+  rgba(1,8,45,.85)),
+  url("images/galaxy5.jpg");
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
 }
 
-/* GENERAL BOX STYLE */
-.box {
-  background: rgba(0,0,0,0.4);
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 25px;
-  border-radius: 15px;
-  background: linear-gradient(to bottom, #0a0f1f, #0f1c3f);
-  box-shadow: 0 0 10px rgba(0,140,255,0.4);
+/* MAIN BOX */
+.card,
+.hero{
+  max-width:700px;
+  margin:20px auto;
+  padding:25px;
+  border-radius:22px;
+  background:linear-gradient(to bottom,#07122b,#0a1d49);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 0 18px rgba(0,140,255,.22);
+  transition:.4s ease;
 }
 
-/* PROFILE BOX */
-.profile img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 10px #3399ff;
+.card:hover{
+  transform:scale(1.03);
 }
 
-.profile h1 {
-  color: #66b2ff;
-  margin-top: 15px;
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:160px 1fr;
+  gap:28px;
+  align-items:center;
+  text-align:left;
 }
 
-/* TEXT */
-p {
-  color: #ccc;
+.hero img{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 0 24px rgba(102,178,255,.7);
 }
 
-/* LINK BOX */
+.hero h1{
+  font-size:52px;
+  color:#9fd0ff;
+  margin-bottom:10px;
+  text-shadow:0 0 12px rgba(102,178,255,.6);
+}
 
-/* BACK BUTTON TOP LEFT */
+.hero p{
+  color:#d8e7ff;
+}
+
+/* HEADINGS */
+h2{
+  color:#9fd0ff;
+  margin-bottom:16px;
+}
+
+/* ABOUT TEXT */
+.type-text{
+  overflow:hidden;
+  max-height:0;
+  opacity:0;
+  transition:1s ease;
+  text-align:justify;
+  line-height:1.8;
+  text-indent:35px;
+}
+/* when card hovered */
+.card:hover .type-text {
+  animation: revealText 8s ease forwards;
+}
+
+/* reset when mouse leaves */
+.card:not(:hover) .type-text {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* smooth reveal */
+@keyframes revealText {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  to {
+    max-height: 300px;
+    opacity: 1;
+  }
+}
+
+/* FAVORITES */
+.anime-row{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.anime-box{
+  width:160px;
+  height:220px;
+  border-radius:20px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 0 16px rgba(0,140,255,.25);
+  transition:.3s ease;
+}
+
+.anime-box:hover{
+  transform:scale(1.06);
+}
+
+.anime-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* PREVIEW BOX BELOW */
+.preview-box{
+  position:relative;
+  max-width:700px;
+  height:340px;
+  margin:20px auto;
+  border-radius:22px;
+  overflow:hidden;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 0 18px rgba(0,140,255,.22);
+}
+
+/* ALL IMAGES STACKED */
+.preview-box img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:1s ease;
+}
+
+/* DEFAULT EMPTY TEXT */
+.preview-box span{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#8fb8ff;
+  font-size:20px;
+  letter-spacing:1px;
+}
+
+/* CLICK TARGETS */
+#op:target ~ .preview-box .bac1{opacity:1;}
+#na:target ~ .preview-box .bac2{opacity:1;}
+#aot:target ~ .preview-box .bac3{opacity:1;}
+
+#op:target ~ .preview-box span,
+#na:target ~ .preview-box span,
+#aot:target ~ .preview-box span{
+  opacity:0;
+}
+
+/* SOCIALS */
+.social-row{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.social-box a{
+  display:block;
+  padding:12px 18px;
+  border-radius:14px;
+  color:#9fd0ff;
+  text-decoration:none;
+  background:rgba(255,255,255,.05);
+  transition:.3s ease;
+}
+
+.social-box a:hover{
+  transform:scale(1.08);
+  background:rgba(102,178,255,.18);
+}
+
+/* BACK BUTTON */
 .back {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  display: inline-block;
-  padding: 15px 25px;
-  border-radius: 12px;
-  background: linear-gradient(to bottom, #0a0f1f, #0f1c3f);
-  box-shadow: 0 0 10px rgba(0,140,255,0.4);
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
 }
 
 .back a {
-  color: #66b2ff;
+  color: #b3d4ff;
   text-decoration: none;
   font-weight: bold;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 20px;
+  border-radius: 30px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
 }
 
 .back a:hover {
   text-decoration: underline;
+  background: rgba(102, 178, 255, 0.2);
+  color: #fff;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+.hero{
+  grid-template-columns:1fr;
+  text-align:center;
+}
+
+.hero img{
+  margin:auto;
+}
+
+.hero h1{
+  font-size:38px;
+}
+
+.preview-box{
+  height:220px;
+}
+
+.anime-box{
+  width:110px;
+  height:150px;
+}
+
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- PROFILE BOX -->
-<div class="box profile">
+<!-- BACK -->
+<div class="back">
+  <a href="index.html">⬅ Back</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
   <img src="images/person5.jpg">
-  <h1>Paolo Ellema</h1>
+
+  <div>
+    <h1>Paolo Ellema</h1>
+    <p>It always seems impossible until it's done.</p>
+  </div>
 </div>
 
-<!-- DESCRIPTION BOX 1 -->
-<div class="box">
-  <p>
-    This is a simple placeholder about page.
-    Content will be updated soon.
+<!-- ABOUT -->
+<div class="card">
+  <h2>About</h2>
+
+  <p class="type-text">
+    In a constantly evolving digital world, 
+    a creator sets out on a quiet yet determined journey—exploring new ideas, 
+    refining skills, and transforming imagination into something real. 
+    Each challenge becomes part of the process, shaping growth and pushing boundaries, 
+    while every project reflects a step forward. From simple concepts to more refined creations, 
+    this space captures fragments of that ongoing story—a collection of work, experiments, and progress, 
+    all driven by curiosity and the pursuit of improvement.
+
   </p>
 </div>
 
-<!-- DESCRIPTION BOX 2 -->
-<div class="box">
-  <p>
-    Hobbies: Example | Example | Example
-  </p>
+<!-- FAVORITES -->
+<div class="card">
+  <h2>Favorites</h2>
+
+  <div class="anime-row">
+
+    <a href="#op" class="anime-box">
+      <img src="images/pos1.jpg">
+    </a>
+
+    <a href="#na" class="anime-box">
+      <img src="images/pos2.jpg">
+    </a>
+
+    <a href="#aot" class="anime-box">
+      <img src="images/pos3.jpg">
+    </a>
+
+  </div>
 </div>
 
-<!-- BACK BUTTON BOX -->
-<div class="box back">
-  <a href="index.html">⬅ Back to Home</a>
+<!-- hidden anchors -->
+<div id="op"></div>
+<div id="na"></div>
+<div id="aot"></div>
+
+<!-- PREVIEW -->
+<div class="preview-box">
+
+  <span>Select an anime above</span>
+
+  <img src="images/bac1.jpg" class="bac1">
+  <img src="images/bac2.jpg" class="bac2">
+  <img src="images/bac3.jpg" class="bac3">
+
+</div>
+
+<!-- SOCIALS -->
+<div class="card">
+  <h2>Socials</h2>
+
+  <div class="social-row">
+
+    <div class="social-box">
+      <a href="#">Facebook</a>
+    </div>
+
+    <div class="social-box">
+      <a href="#">Instagram</a>
+    </div>
+
+    <div class="social-box">
+      <a href="#">Tiktok</a>
+    </div>
+
+  </div>
 </div>
 
 </body>
